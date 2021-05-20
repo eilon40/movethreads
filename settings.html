@@ -1,0 +1,105 @@
+<div id="task-modal-backdrop" class="modal-backdrop fade in" style="display: block;"></div>
+
+<div id="new_prefs_dialog" class="modal hide fade in" aria-hidden="false">
+    <div class="modal-header">
+        <a class="btn dialog_go btn_small float_right">Done</a>
+        <h3>Project Management Settings</h3>
+    </div>
+    <div class="modal-body" style="overflow-y: visible;">
+
+        <div id="prefs_notifications" class="dialog_tab_pane active">
+
+            <div id="" class="monkey_scroll_wrapper ">
+                <div class="monkey_scroll_bar  hidden" style="margin-left: 606.5px;">
+                    <div class="monkey_scroll_handle " style="left: 0px;">
+                        <div class="monkey_scroll_handle_inner "></div>
+                    </div>
+                </div>
+                <div class="monkey_scroll_hider " style="width: 100%;">
+                    <div class="dialog_tab_pane_scroller monkey_scroller">
+
+                        <div class="growls_stuff hidden" id="growls_permission_div">
+                            <p class="bold no_bottom_margin"><span class="desktop_notifications_title">Desktop Notifications are currently disabled</span></p>
+                            <p class="small_bottom_margin">We strongly recommend enabling them.</p>
+                            <p class="large_bottom_margin"><a class="btn btn_success" id="growls_permission_link" onclick="TS.ui.prefs_dialog.onGrowlsPermissionLinkClick(); return false;"><i class="ts_icon ts_icon_bell_o small_right_margin"></i> Enable desktop notifications</a></p>
+                        </div>
+                        <div class="growls_stuff hidden" id="growls_instructions_div">
+                            <p class="bold small_bottom_margin"><span class="desktop_notifications_title">Desktop Notifications</span></p>
+                            <p class="alert alert_info"><i class="ts_icon ts_icon_info_circle"></i> Your browser should now be presenting you with the option to enable notifications, probably at the top or bottom of this window. Click <strong>Enable</strong> or <strong>Allow</strong> or <strong>Yes</strong> or <strong>OK</strong> or whatever the right button is!</p>
+                        </div>
+                        <div class="growls_stuff hidden" id="growls_disallowed_div">
+                            <p class="bold small_bottom_margin"><span class="desktop_notifications_title">Desktop Notifications are currently disabled</span></p>
+                            <p class="moscow_red_dark italic small_bottom_margin">You've disallowed notifications in your browser. You'll need to open your browser preferences to change that.</p>
+                            <p class="mini">You can set <a href="/account/notifications" target="_blank">notification preferences for email &amp; mobile here</a>.</p>
+                        </div>
+                        <div class="growls_stuff hidden" id="growls_impossible_div">
+                            <p class="bold small_bottom_margin"><span class="desktop_notifications_title">Desktop Notifications are disabled</span></p>
+                            <p class=""><i class="ts_icon ts_icon_exclamation_triangle"></i> Your browser does not support desktop notifications. <a href="/apps" target="_blank">Try one of our apps?</a></p>
+                            <p class="mini">You can set <a href="/account/notifications" target="_blank">notification preferences for email &amp; mobile here</a>.</p>
+                        </div>
+                        <div class="growls_stuff" id="growls_allowed_div">
+
+                            <p class="bold small_bottom_margin">
+                                <span class="desktop_notifications_title">Desktop Notifications</span>
+                                <span class="mini helvetica normal left_margin"><a id="growls_test" onclick="TS.sounds.play('new_message'); TS.ui.growls.show('Slack Notification', 'Hey! It works.'); return false;"><i class="ts_icon ts_icon_bell_o_o"></i> Send test notification</a></span>
+                            </p>
+                            <p class="left_margin tiny_bottom_margin">
+                                <label class="radio no_margin">
+                                    <input name="notifications_rd" type="radio" class="small_right_margin" value="all"> For activity of any kind
+                                </label>
+                                <label class="radio no_margin">
+                                    <input name="notifications_rd" type="radio" class="small_right_margin" value="mentions"> Only for Highlight Words and direct messages
+                                </label>
+                                <label class="radio no_margin">
+                                    <input name="notifications_rd" type="radio" class="small_right_margin" value="never"> Never
+                                </label>
+                            </p>
+
+                            <p id="no_non_default" class="mini small_bottom_margin">You can override your desktop notification preference on a case-by-case basis for channels and groups from the channel or group menu. Or, <a href="/account/notifications" target="new_1440175334960">set notification preferences for email &amp; mobile</a>.</p>
+                            <p class="non_default hidden mini small_bottom_margin">Some of your channels or groups have <strong id="non_default_tip_link" class="cursor_pointer" data-original-title="" title="">different notification settings</strong>. Or, <a href="/account/notifications" target="new_1440175334960">set notification preferences for email &amp; mobile</a>.</p>
+
+                            <p class="left_margin small_bottom_margin">
+                                <label class="checkbox no_margin">
+                                    <input id="no_text_in_notifications_cb" checked="checked" type="checkbox" class="small_right_margin"> Display message text in desktop notifications
+                                </label>
+                            </p>
+
+                        </div>
+
+                        <p class="bold no_bottom_margin top_margin">Highlight Words</p>
+                        <p class="small_bottom_margin">To be notified when someone mentions a word or phrase, add it here. You can separate words or phrases with commas. Highlight Words are not case sensitive.</p>
+                        <p>
+                            <input id="highlight_words_input" type="text" class="small no_bottom_margin full_width" placeholder="Your screen name &quot;jasondavis&quot; is automatically a Highlight Word" value="">
+                        </p>
+
+                        <p class="bold no_bottom_margin">
+                            Notification Sound <span class="normal left_margin"> <label class="checkbox normal inline_block auto_width no_min_width"><input id="mute_sounds_cb" checked="checked" type="checkbox"> Mute all sounds</label></span>
+                        </p>
+                        <p class="no_bottom_margin">
+                            <label class="select small no_right_padding" id="new_msg_snd_select_label">
+                                <select id="new_msg_snd_select" class="small no_bottom_margin">
+                                    <option value="b2.mp3">Ding</option>
+                                    <option value="animal_stick.mp3">Boing</option>
+                                    <option value="been_tree.mp3">Drop</option>
+                                    <option value="complete_quest_requirement.mp3">Ta-da</option>
+                                    <option value="confirm_delivery.mp3">Plink</option>
+                                    <option value="flitterbug.mp3">Wow</option>
+                                    <option value="here_you_go_lighter.mp3">Here you go</option>
+                                    <option value="hi_flowers_hit.mp3">Hi</option>
+                                    <option value="item_pickup.mp3">Yoink</option>
+                                    <option value="knock_brush.mp3">Knock Brush</option>
+                                    <option value="save_and_checkout.mp3">Woah!</option>
+                                    <option value="none">None (sound off)</option>
+                                </select>
+                            </label>
+                            <button id="soundpreview" class="btn btn_outline small_left_margin"><i class="ts_icon ts_icon_inherit ts_icon_volume_up"></i> Preview</button>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
