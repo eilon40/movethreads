@@ -225,7 +225,7 @@ a:not([href]) {
     visibility: hidden;
 }
 
-.monkey_scroll_bar {
+/* .monkey_scroll_bar {
     position: absolute;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -262,7 +262,7 @@ a:not([href]) {
     -webkit-border-radius: 8px;
     -khtml-border-radius: 8px;
     border-radius: 8px;
-}
+} */
 
 #new_prefs_dialog .dialog_tab_pane .dialog_tab_pane_scroller {
     padding: 1rem 2rem 1rem 1.5rem;
