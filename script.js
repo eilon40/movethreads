@@ -25,12 +25,7 @@
                             response(forumsSrc, forums);
                         }
                     });
-                },
-                select: function (event, ui) {
-                    let id = ids.filter(x => x.title_clean.startsWith(ui.item.value))[0].forumid;
-                    $('#destforumid').val(id);
-                },
-                minLength: 2
+                }
             });
         });
 
