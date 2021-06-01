@@ -20,7 +20,7 @@
     color: #555555;
 }
 
-.ui-menu .ui-menu-item a.ui-state-focus {
+.ui-menu-item div.ui-state-active {
     color: #ffffff;
     text-decoration: none;
     background-color: coral;
