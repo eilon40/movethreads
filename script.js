@@ -1,6 +1,6 @@
         let group = $('.group').eq(3);
 
-        $('#destforumid').parent().eq(0).after(`<div class="blockrow"><label for="destforumname">פורום מטרה:</label><input id="destforumname" name="destforumname" class="textbox primary ui-autocomplete-input"></div>`);
+        $('#destforumid').parent().eq(0).after(`<div class="blockrow ui-widget"><label for="destforumname">פורום מטרה:</label><input id="destforumname" name="destforumname" class="textbox primary ui-autocomplete-input"></div>`);
         $('#destforumid').parent().eq(0).hide();
 
         group.find('input[type=submit]').eq(0).hide();
