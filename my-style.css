@@ -11,7 +11,7 @@
     background-clip: padding-box;
 }
 
-.ui-menu .ui-menu-item div {
+.ui-menu .ui-menu-item .ui-menu-item {
     display: block;
     padding: 3px 15px;
     font-weight: normal;
@@ -20,7 +20,8 @@
     color: #555555;
 }
 
-.ui-menu-item div.ui-state-hover, .ui-menu-item div.ui-state-active {
+.ui-menu .ui-menu-item .ui-state-focus,
+.ui-menu .ui-menu-item .ui-state-active {
     color: #ffffff;
     text-decoration: none;
     background-color: coral;
