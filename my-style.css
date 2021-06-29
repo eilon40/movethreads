@@ -20,7 +20,7 @@
     color: #555555;
 }
 
-.ui-menu-item div.ui-state-active {
+.ui-state-hover, .ui-state-active {
     color: #ffffff;
     text-decoration: none;
     background-color: coral;
