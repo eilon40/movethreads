@@ -25,5 +25,6 @@
     color: #ffffff;
     text-decoration: none;
     background-color: coral;
-    border: none;
+    border-radius: 0;
+    border-color: transparent;
 }
