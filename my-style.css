@@ -24,6 +24,6 @@
 .ui-menu .ui-menu-item a.ui-state-active {
     color: #ffffff;
     text-decoration: none;
-    background-color: coral;
+    background-color: coral !important;
     border-radius: 0px;
 }
