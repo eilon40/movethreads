@@ -48,7 +48,7 @@
 }
 .autocomplete-items div:hover {
   /*when hovering an item:*/
-  background-color: coral;
+  background-color: #FF7F50;
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
