@@ -11,7 +11,7 @@
     background-clip: padding-box;
 }
 
-.ui-menu .ui-menu-item .ui-corner-all {
+.ui-menu .ui-menu-item {
     display: block;
     padding: 3px 15px;
     font-weight: normal;
