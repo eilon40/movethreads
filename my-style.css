@@ -9,7 +9,7 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.ui-menu .ui-menu-item {
+.ui-autocomplete > li {
     display: block;
     padding: 3px 15px;
     font-weight: normal;
@@ -18,8 +18,7 @@
     color: #555555;
 }
 
-.ui-menu .ui-state-focus,
-.ui-menu .ui-state-active {
+.ui-autocomplete > li.ui-state-focus {
     color: #ffffff;
     text-decoration: none;
     background-color: coral;
