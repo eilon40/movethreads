@@ -18,6 +18,7 @@
     line-height: 18px;
     font-size: 15px;
     color: #555555;
+    min-width: 160px;
 }
 
 .ui-menu .ui-state-focus,
