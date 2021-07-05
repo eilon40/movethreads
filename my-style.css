@@ -18,7 +18,7 @@
     color: #555555;
 }
 
-.ui-autocomplete > li.ui-state-focus {
+.ui-autocomplete > li > a.ui-state-focus {
     color: #ffffff;
     text-decoration: none;
     background-color: coral;
