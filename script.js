@@ -1,8 +1,12 @@
-let style = document.createElement("STYLE");
-style.innerText = `.actionbuttons .group .button:not([type="reset"]) {
-background: ${sessionStorage.getItem('color')} !important;
+let color = sessionStorage.getItem('color');
+
+if (color !== null) {
+    let style = document.createElement("STYLE");
+    style.innerText = `.actionbuttons .group .button:not([type="reset"]) {
+background: ${color} !important;
 }`;
-document.head.appendChild(style);
+    document.head.appendChild(style);
+}
 
 let group = $('.group').eq(3);
 
