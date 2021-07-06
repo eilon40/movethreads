@@ -8,6 +8,17 @@ background: ${color} !important;
     document.head.appendChild(style);
 }
 
+
+let ACcolor = sessionStorage.getItem('ACcolor');
+
+if (ACcolor !== null) {
+    let style = document.createElement("STYLE");
+    style.innerText = `.actionbuttons .group .button:not([type="reset"]) {
+background: ${ACcolor} !important;
+}`;
+    document.head.appendChild(style);
+}
+
 let group = $('.group').eq(3);
 
 $('#destforumid').parent().eq(0).after(`<div class="blockrow ui-widget"><label for="destforumname">פורום מטרה:</label><input id="destforumname" name="destforumname" class="textbox primary ui-autocomplete-input"></div>`);
