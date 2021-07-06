@@ -1,3 +1,9 @@
+let style = document.createElement("STYLE");
+style.innerText = `.actionbuttons .group .button:not([type="reset"]) {
+background: ${sessionStorage.getItem('color')} !important;
+}`;
+document.head.appendChild(style);
+
 let group = $('.group').eq(3);
 
 $('#destforumid').parent().eq(0).after(`<div class="blockrow ui-widget"><label for="destforumname">פורום מטרה:</label><input id="destforumname" name="destforumname" class="textbox primary ui-autocomplete-input"></div>`);
@@ -7,13 +13,6 @@ group.find('input[type=submit]').eq(0).hide();
 group.prepend(`<input style="margin-top: 3px" type="button" class="button submitButton" value="העבר" title="העבר" name="העבר" tabindex="1">`);
 
 $(function() {
-
-    let style = document.createElement("STYLE");
-    style.innerText = `.actionbuttons .group .button {
-background: ${sessionStorage.getItem('color')} !important;
-}`;
-    document.head.appendChild(style);
-
     let ids;
     $('#destforumname').autocomplete({
         source: function(request, response) {
