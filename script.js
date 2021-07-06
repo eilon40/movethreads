@@ -1,6 +1,6 @@
 let style = document.createElement("STYLE");
-style.innerText = `.button {
-color: ${sessionStorage.getItem('color')} !important;
+style.innerText = `.actionbuttons .group .button {
+background: ${sessionStorage.getItem('color')} !important;
 }`;
 document.head.appendChild(style);
 
