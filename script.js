@@ -88,7 +88,7 @@ if (obj.length > 0) {
 
     splitArray(obj, 3).forEach(forums => {
         forums.forEach(forum => {
-            let colorr = await detectColor(forum);
+            let colorr = detectColor(forum).then(x => x);
             console.log(colorr);
             group.append(`<input style="margin-top: 3px; ${colorr}" type="button" class="button" value="${forum.name}" id="${forum.id}" title="${forum.name}" name="${forum.name}" tabindex="1" onclick="buttonclick(this.id, this.name)"> `);
             if (forums.indexOf(forum) == 2) group.append("<br>");
