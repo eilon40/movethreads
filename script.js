@@ -75,7 +75,7 @@ function buttonclick(id, name) {
 async function detectColor(forum) {
     if (forum.color !== '' && forum.color !== null) {
         console.log(forum.color);
-        return `background: ${forum.color}`;
+        return `background: ${forum.color} !important`;
     } else return '';
 }
 
