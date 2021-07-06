@@ -13,11 +13,12 @@ let ACcolor = sessionStorage.getItem('ACcolor');
 
 if (ACcolor !== null) {
     let style = document.createElement("STYLE");
-    style.innerText = `.actionbuttons .group .button:not([type="reset"]) {
+    style.innerText = `.ui-autocomplete > li > a.ui-state-focus {
 background: ${ACcolor} !important;
 }`;
     document.head.appendChild(style);
 }
+
 
 let group = $('.group').eq(3);
 
