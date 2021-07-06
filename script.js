@@ -72,6 +72,12 @@ function buttonclick(id, name) {
     group.find('input[type=submit]').eq(0).click();
 }
 
+async function detectColor(forum) {
+    if (forum.color !== '' && forum.color !== null) {
+        return `background: ${forum.color}`;
+    } else return;
+}
+
 let obj = sessionStorage.getItem('obj');
 obj = JSON.parse(obj);
 console.log(obj.length);
@@ -82,7 +88,7 @@ if (obj.length > 0) {
     splitArray(obj, 3).forEach(forums => {
         forums.forEach(forum => {
             console.log(forum);
-            group.append(`<input style="margin-top: 3px" type="button" class="button" value="${forum.name}" id="${forum.id}" title="${forum.name}" name="${forum.name}" tabindex="1" onclick="buttonclick(this.id, this.name)"> `);
+            group.append(`<input style="margin-top: 3px; ${detectColor(forum)}" type="button" class="button" value="${forum.name}" id="${forum.id}" title="${forum.name}" name="${forum.name}" tabindex="1" onclick="buttonclick(this.id, this.name)"> `);
             if (forums.indexOf(forum) == 2) group.append("<br>");
         });
     });
