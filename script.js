@@ -1,53 +1,58 @@
-        let group = $('.group').eq(3);
+let style = document.createElement("STYLE");
+style.innerText = `.button {
+color: ${sessionStorage.getItem(color)} !important;
+}`;
+document.head.appendChild(style);
 
-        $('#destforumid').parent().eq(0).after(`<div class="blockrow ui-widget"><label for="destforumname">פורום מטרה:</label><input id="destforumname" name="destforumname" class="textbox primary ui-autocomplete-input"></div>`);
-        $('#destforumid').parent().eq(0).hide();
 
-        group.find('input[type=submit]').eq(0).hide();
-        group.prepend(`<input style="margin-top: 3px" type="button" class="button submitButton" value="העבר" title="העבר" name="העבר" tabindex="1">`);
+let group = $('.group').eq(3);
 
-        $(function () {
-            let ids;
-            $('#destforumname').autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "https://www.fxp.co.il/ajax.php?do=forumdisplayqserach&name_startsWith=" + document.getElementById("destforumname").value,
-                        crossDomain: true,
-                        async: true,
-                        success: function (res) {
-                            let forums = res = JSON.parse(res);
-                            let forumsSrc = [];
-                            for (var i = 0; i < res.length; i++) {
-                                forumsSrc.push(res[i].title_clean);
-                                ids = forums;
-                                console.log(res[i].title_clean);
-                            }
-                            response(forumsSrc, forums);
-                        }
-                    });
-                },
-                select: function (event, ui) {
-                    let id = ids.filter(x => x.title_clean.startsWith(ui.item.value))[0].forumid;
-                    $('#destforumid').val(id);
-                },
-            });
-        });
+$('#destforumid').parent().eq(0).after(`<div class="blockrow ui-widget"><label for="destforumname">פורום מטרה:</label><input id="destforumname" name="destforumname" class="textbox primary ui-autocomplete-input"></div>`);
+$('#destforumid').parent().eq(0).hide();
 
-        group.find('input.submitButton').eq(0).click(function() {
-            console.log('run');
+group.find('input[type=submit]').eq(0).hide();
+group.prepend(`<input style="margin-top: 3px" type="button" class="button submitButton" value="העבר" title="העבר" name="העבר" tabindex="1">`);
+
+$(function() {
+    let ids;
+    $('#destforumname').autocomplete({
+        source: function(request, response) {
             $.ajax({
                 url: "https://www.fxp.co.il/ajax.php?do=forumdisplayqserach&name_startsWith=" + document.getElementById("destforumname").value,
                 crossDomain: true,
                 async: true,
-                success: function (res) {
+                success: function(res) {
                     let forums = res = JSON.parse(res);
-                    $('#destforumid').val(res[0].forumid);
-                    group.find('input[type=submit]').eq(0).click();
+                    let forumsSrc = [];
+                    for (var i = 0; i < res.length; i++) {
+                        forumsSrc.push(res[i].title_clean);
+                        ids = forums;
+                        console.log(res[i].title_clean);
+                    }
+                    response(forumsSrc, forums);
                 }
             });
-        });
+        },
+        select: function(event, ui) {
+            let id = ids.filter(x => x.title_clean.startsWith(ui.item.value))[0].forumid;
+            $('#destforumid').val(id);
+        },
+    });
+});
 
-
+group.find('input.submitButton').eq(0).click(function() {
+    console.log('run');
+    $.ajax({
+        url: "https://www.fxp.co.il/ajax.php?do=forumdisplayqserach&name_startsWith=" + document.getElementById("destforumname").value,
+        crossDomain: true,
+        async: true,
+        success: function(res) {
+            let forums = res = JSON.parse(res);
+            $('#destforumid').val(res[0].forumid);
+            group.find('input[type=submit]').eq(0).click();
+        }
+    });
+});
 
 
 
@@ -70,7 +75,7 @@ console.log(obj.length);
 
 if (obj.length > 0) {
     group.append("<br>");
-        
+
     splitArray(obj, 3).forEach(forums => {
         forums.forEach(forum => {
             console.log(forum);
