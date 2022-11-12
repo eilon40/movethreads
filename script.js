@@ -56,7 +56,6 @@ $(function() {
 });
 
 group.find('input.submitButton').eq(0).click(function() {
-    console.log('run');
     $.ajax({
         url: "https://www.fxp.co.il/ajax.php?do=forumdisplayqserach&name_startsWith=" + document.getElementById("destforumname").value,
         crossDomain: true,
@@ -86,14 +85,12 @@ function buttonclick(id, name) {
 
 async function detectColor(forum) {
     if (forum.color !== '' && forum.color !== null) {
-        console.log(forum.color);
         return `background: ${forum.color} !important`;
     } else return '';
 }
 
 let obj = sessionStorage.getItem('obj');
 obj = JSON.parse(obj);
-console.log(obj.length);
 
 if (obj.length > 0) {
     group.append("<br>");
@@ -101,7 +98,6 @@ if (obj.length > 0) {
     splitArray(obj, 3).forEach(forums => {
         forums.forEach(forum => {
             detectColor(forum).then(c => {
-                console.log(c);
                 group.append(`<input style="margin-top: 3px; ${c}" type="button" class="button" value="${forum.name}" id="${forum.id}" title="${forum.name}" name="${forum.name}" tabindex="1" onclick="buttonclick(this.id, this.name)"> `);
                 if (forums.indexOf(forum) == 2) group.append("<br>");
             });
